@@ -29,7 +29,7 @@
 		foreach ($topics as $topic) {
 			echo "<div>";
 			echo "Topic name: " . $topic['name'];
-			echo "<button>View topic</button>";
+			echo "<a href=./study.php?topic_id=" . $topic['id'] . "&title=" .  $topic['name'] . ">View topic</a>";
 			echo "</div>";
 		}
 
