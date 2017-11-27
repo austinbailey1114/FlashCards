@@ -8,7 +8,7 @@ error_reporting(-1);
 session_start();
 
 $servername = "localhost";
-$username = "bailey";
+$username = "root";
 $password = "";
 $dbname = "flashcards";
 
