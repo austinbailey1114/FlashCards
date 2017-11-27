@@ -30,6 +30,7 @@ $cards = json_decode(trim($cards), true);
 			<h2 id="cardDisplay"></h2>
 		</div>
 		<button id="nextCard">Next Card</button>
+		<button id="previousCard">Previous Card</button>
 	</div>
 
 </body>
@@ -40,12 +41,29 @@ $cards = json_decode(trim($cards), true);
 	card.innerHTML = cards[counter]['title'];
 
 	var nextCard = document.getElementById('nextCard');
+	var previousCard = document.getElementById('previousCard');
 
 	nextCard.addEventListener('click', function() { incrementCard(); }, false);
+	previousCard.addEventListener('click', function() { decrementCard(); }, false);
 
-	function  incrementCard() {
+	function incrementCard() {
 		counter++;
-		card.innerHTML = cards[counter]['title'];
+		try {
+			card.innerHTML = cards[counter]['title'];
+		} catch(err) {
+			counter = 0;
+			card.innerHTML = cards[counter]['title'];
+		}	
+	}
+
+	function decrementCard() {
+		counter--;
+		try {
+			card.innerHTML = cards[counter]['title'];
+		} catch (err) {
+			counter = cards.length - 1;
+			card.innerHTML = cards[counter]['title'];
+		}
 	}
 
 
