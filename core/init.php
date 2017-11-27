@@ -7,6 +7,9 @@ error_reporting(-1);
 
 session_start();
 
+//temporary, while on localhost
+$url = 'localhost/flashcards';
+
 $servername = "localhost";
 $username = "root";
 $password = "";
