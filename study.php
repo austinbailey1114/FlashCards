@@ -31,6 +31,7 @@ $cards = json_decode(trim($cards), true);
 		</div>
 		<button id="nextCard">Next Card</button>
 		<button id="previousCard">Previous Card</button>
+		<button id="flipCard">Flip Card</button>
 	</div>
 
 </body>
@@ -42,9 +43,11 @@ $cards = json_decode(trim($cards), true);
 
 	var nextCard = document.getElementById('nextCard');
 	var previousCard = document.getElementById('previousCard');
+	var flipCard = document.getElementById('flipCard');
 
-	nextCard.addEventListener('click', function() { incrementCard(); }, false);
-	previousCard.addEventListener('click', function() { decrementCard(); }, false);
+	nextCard.addEventListener('click', function() { incrementCard(); });
+	previousCard.addEventListener('click', function() { decrementCard(); });
+	flipCard.addEventListener('click', function() { flip(); });
 
 	function incrementCard() {
 		counter++;
@@ -62,6 +65,14 @@ $cards = json_decode(trim($cards), true);
 			card.innerHTML = cards[counter]['title'];
 		} catch (err) {
 			counter = cards.length - 1;
+			card.innerHTML = cards[counter]['title'];
+		}
+	}
+
+	function flip() {
+		if (card.innerHTML == cards[counter]['title']) {
+			card.innerHTML = cards[counter]['definition'];
+		} else {
 			card.innerHTML = cards[counter]['title'];
 		}
 	}
