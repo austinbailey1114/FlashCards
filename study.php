@@ -17,5 +17,37 @@ if (curl_errno($ch)) {
 
 $cards = json_decode(trim($cards), true);
 
-var_dump($cards);
+?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $title; ?></title>
+</head>
+<body>
+	<div id="container">
+		<div id="card">
+			<h2 id="cardDisplay"></h2>
+		</div>
+		<button id="nextCard">Next Card</button>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var counter = 0;
+	var cards = <?php echo json_encode($cards); ?>;
+	var card = document.getElementById('cardDisplay');
+	card.innerHTML = cards[counter]['title'];
+
+	var nextCard = document.getElementById('nextCard');
+
+	nextCard.addEventListener('click', function() { incrementCard(); }, false);
+
+	function  incrementCard() {
+		counter++;
+		card.innerHTML = cards[counter]['title'];
+	}
+
+
+</script>
+</html>
