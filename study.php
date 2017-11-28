@@ -23,6 +23,8 @@ $cards = json_decode(trim($cards), true);
 <html>
 <head>
 	<title><?php echo $title; ?></title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/study.css">
 </head>
 <body>
 	<div id="container">

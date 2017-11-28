@@ -22,6 +22,7 @@
 <head>
 	<title>Flash Cards</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
 </head>
 <body>
 	<h2>Your topics</h2>
