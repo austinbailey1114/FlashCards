@@ -21,6 +21,7 @@
 <html>
 <head>
 	<title>Flash Cards</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
 	<h2>Your topics</h2>

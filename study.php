@@ -33,8 +33,14 @@ $cards = json_decode(trim($cards), true);
 		<button id="previousCard">Previous Card</button>
 		<button id="flipCard">Flip Card</button>
 	</div>
-
+	<form action="./api/insertCard.php" method="post">
+		<input type="text" name="title" id="titleInput">
+		<input type="text" name="definition" id="definitionInput">
+		<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
+		<button>Add Card</button>
+	</form>
 </body>
+
 <script type="text/javascript">
 	var counter = 0;
 	var cards = <?php echo json_encode($cards); ?>;
@@ -76,7 +82,5 @@ $cards = json_decode(trim($cards), true);
 			card.innerHTML = cards[counter]['title'];
 		}
 	}
-
-
 </script>
 </html>
