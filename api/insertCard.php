@@ -2,7 +2,9 @@
 
 require '../core/init.php';
 
+//topic_id and topic_title hidden on study/php
 $topic_id = $_POST['topic_id'];
+$topic_title = $_POST['topic_title'];
 $title = $_POST['title'];
 $def = $_POST['definition'];
 
@@ -18,6 +20,6 @@ if ($stmt->execute()) {
 	//card not added
 }
 
-header("Location: ../study.php?topic_id=" . $topic_id . "&title=" . $title);
+header("Location: ../study.php?topic_id=" . $topic_id . "&title=" . $topic_title);
 
 
