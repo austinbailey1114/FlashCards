@@ -48,7 +48,9 @@ $cards = json_decode(trim($cards), true);
 	var counter = 0;
 	var cards = <?php echo json_encode($cards); ?>;
 	var card = document.getElementById('cardDisplay');
-	card.innerHTML = cards[counter]['title'];
+
+	var startWithSide = 'title';
+	card.innerHTML = cards[counter][startWithSide];
 
 	var nextCard = document.getElementById('nextCard');
 	var previousCard = document.getElementById('previousCard');
@@ -71,29 +73,36 @@ $cards = json_decode(trim($cards), true);
 			cards[randomIndex] = temp;
 			backIndex--;
 		}
-		console.log(cards);
 		counter = 0;
-		card.innerHTML = cards[counter]['title'];
+		card.innerHTML = cards[counter][startWithSide];
+	}
 
+	function invertSide() {
+		if (startWithSide == 'title') {
+			startWithSide = 'definition';
+		} else {
+			startWithSide = 'title';
+		}
+		card.innerHTML = cards[counter][startWithSide];
 	}
 
 	function incrementCard() {
 		counter++;
 		try {
-			card.innerHTML = cards[counter]['title'];
+			card.innerHTML = cards[counter][startWithSide];
 		} catch(err) {
 			counter = 0;
-			card.innerHTML = cards[counter]['title'];
+			card.innerHTML = cards[counter][startWithSide];
 		}	
 	}
 
 	function decrementCard() {
 		counter--;
 		try {
-			card.innerHTML = cards[counter]['title'];
+			card.innerHTML = cards[counter][startWithSide];
 		} catch (err) {
 			counter = cards.length - 1;
-			card.innerHTML = cards[counter]['title'];
+			card.innerHTML = cards[counter][startWithSide];
 		}
 	}
 
