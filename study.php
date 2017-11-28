@@ -40,6 +40,8 @@ $cards = json_decode(trim($cards), true);
 		<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
 		<button>Add Card</button>
 	</form>
+	<button id="shuffle">Shuffle</button>
+	<button id="studyOppositeSide">View def first</button>
 </body>
 
 <script type="text/javascript">
@@ -51,10 +53,29 @@ $cards = json_decode(trim($cards), true);
 	var nextCard = document.getElementById('nextCard');
 	var previousCard = document.getElementById('previousCard');
 	var flipCard = document.getElementById('flipCard');
+	var shuffle = document.getElementById('shuffle');
+	var studyOppositeSide = document.getElementById('studyOppositeSide'); 
 
 	nextCard.addEventListener('click', function() { incrementCard(); });
 	previousCard.addEventListener('click', function() { decrementCard(); });
 	flipCard.addEventListener('click', function() { flip(); });
+	shuffle.addEventListener('click', function() { shuffleCards(); });
+	studyOppositeSide.addEventListener('click', function() { invertSide(); });
+
+	function shuffleCards() {
+		var backIndex = cards.length-1;
+		while (backIndex > 0) {
+			var randomIndex = Math.floor(Math.random() * backIndex);
+			var temp = cards[backIndex];
+			cards[backIndex] = cards[randomIndex];
+			cards[randomIndex] = temp;
+			backIndex--;
+		}
+		console.log(cards);
+		counter = 0;
+		card.innerHTML = cards[counter]['title'];
+
+	}
 
 	function incrementCard() {
 		counter++;
@@ -83,5 +104,22 @@ $cards = json_decode(trim($cards), true);
 			card.innerHTML = cards[counter]['title'];
 		}
 	}
+
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
