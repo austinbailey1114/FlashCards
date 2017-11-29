@@ -16,7 +16,12 @@ h2 {
 }
 
 button {
-	font-weight: 200;
+  height: 100%;
+  border: 0px solid #DCDCDC;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 13px;
+  font-weight: 200;
 }
 
 .show {
@@ -29,13 +34,18 @@ button {
 	padding: 0px;
 }
 
+#container {
+	width: 50%;
+	margin:auto;
+	margin-top: 12%;
+}
+
 #card {
 	text-align: center;
 	margin: auto;
-	margin-top: 13%;
 	border: 0px solid #DCDCDC;
 	border-radius: 15px;
-	width: 35%;
+	width: 70%;
 	height: 275px;
 	background-color: white;
 }
@@ -52,11 +62,18 @@ button {
 	float: right;
 }
 
+#previousCard, #nextCard, #flipCard {
+	line-height: 50px;
+}
+
 
 #cardInteract {
 	margin:auto;
-	margin-top: 20px;
-	width: 30%;
+	margin-top: 40px;
 	text-align: center;
+	background-color: white;
+	border-radius: 15px;
+	height: 50px;
+	width: 50%;
 }
 
