@@ -31,7 +31,7 @@ $cards = json_decode(trim($cards), true);
 		
 	</div>
 	<div id="sideDiv">
-		
+		<p id="displayCount"></p>
 	</div>
 	<div id="container">
 		<div id="card">
@@ -42,6 +42,10 @@ $cards = json_decode(trim($cards), true);
 			<button id="previousCard">Prev</button>
 			<button id="flipCard">Flip Card</button>
 		</div>
+		<div id="options">
+			<button id="shuffle">Shuffle</button>
+			<button id="studyOppositeSide">View def first</button>
+		</div>
 	</div>
 	<form action="./api/insertCard.php" method="post" style="display: none;">
 		<input type="text" name="title" id="titleInput">
@@ -50,17 +54,14 @@ $cards = json_decode(trim($cards), true);
 		<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
 		<button>Add Card</button>
 	</form>
-	<div>
-		<button id="shuffle">Shuffle</button>
-		<button id="studyOppositeSide">View def first</button>
-	</div>
 </body>
 
 <script type="text/javascript">
 	var counter = 0;
 	var cards = <?php echo json_encode($cards); ?>;
 	var card = document.getElementById('cardDisplay');
-
+	var displayCount = document.getElementById('displayCount');
+	displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
 
@@ -87,6 +88,7 @@ $cards = json_decode(trim($cards), true);
 		}
 		counter = 0;
 		card.innerHTML = cards[counter][startWithSide];
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	}
 
 	function invertSide() {
@@ -96,6 +98,7 @@ $cards = json_decode(trim($cards), true);
 			startWithSide = 'title';
 		}
 		card.innerHTML = cards[counter][startWithSide];
+
 	}
 
 	function incrementCard() {
@@ -103,18 +106,19 @@ $cards = json_decode(trim($cards), true);
 			card.innerHTML = cards[++counter][startWithSide];
 		} catch(err) {
 			counter = 0;
-			card.innerHTML = cards[++counter][startWithSide];
-		}	
+			card.innerHTML = cards[counter][startWithSide];
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;	
 	}
 
 	function decrementCard() {
-		counter--;
 		try {
 			card.innerHTML = cards[--counter][startWithSide];
 		} catch (err) {
 			counter = cards.length - 1;
-			card.innerHTML = cards[--counter][startWithSide];
+			card.innerHTML = cards[counter][startWithSide];
 		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	}
 
 	function flip() {
