@@ -23,3 +23,23 @@ button {
 	width: 35%;
 	height: 250px;
 }
+
+#cardDisplay {
+	line-height: 200px;
+}
+
+#previousCard {
+	float: left;
+}
+
+#nextCard {
+	float: right;
+}
+
+
+#cardInteract {
+	margin:auto;
+	width: 30%;
+	text-align: center;
+}
+

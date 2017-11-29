@@ -31,11 +31,13 @@ $cards = json_decode(trim($cards), true);
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
 		</div>
-		<button id="nextCard">Next Card</button>
-		<button id="previousCard">Previous Card</button>
-		<button id="flipCard">Flip Card</button>
+		<div id="cardInteract">
+			<button id="nextCard">Next</button>
+			<button id="previousCard">Prev</button>
+			<button id="flipCard">Flip Card</button>
+		</div>
 	</div>
-	<form action="./api/insertCard.php" method="post">
+	<form action="./api/insertCard.php" method="post" style="display: none;">
 		<input type="text" name="title" id="titleInput">
 		<input type="text" name="definition" id="definitionInput">
 		<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
@@ -89,22 +91,21 @@ $cards = json_decode(trim($cards), true);
 	}
 
 	function incrementCard() {
-		counter++;
 		try {
-			card.innerHTML = cards[counter][startWithSide];
+			card.innerHTML = cards[++counter][startWithSide];
 		} catch(err) {
 			counter = 0;
-			card.innerHTML = cards[counter][startWithSide];
+			card.innerHTML = cards[++counter][startWithSide];
 		}	
 	}
 
 	function decrementCard() {
 		counter--;
 		try {
-			card.innerHTML = cards[counter][startWithSide];
+			card.innerHTML = cards[--counter][startWithSide];
 		} catch (err) {
 			counter = cards.length - 1;
-			card.innerHTML = cards[counter][startWithSide];
+			card.innerHTML = cards[--counter][startWithSide];
 		}
 	}
 
