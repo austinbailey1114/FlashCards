@@ -34,10 +34,21 @@ button {
 	padding: 0px;
 }
 
+#container, #sideDiv {
+	display: inline-block;
+}
+#sideDiv {
+	width: 10%;
+	height: 1000px;
+	background-color: white;
+	position: fixed;
+}
+
 #container {
 	width: 50%;
 	margin:auto;
-	margin-top: 12%;
+	margin-top: 10%;
+	margin-left: 25%
 }
 
 #card {
@@ -74,6 +85,6 @@ button {
 	background-color: white;
 	border-radius: 15px;
 	height: 50px;
-	width: 50%;
+	width: 57%;
 }
 

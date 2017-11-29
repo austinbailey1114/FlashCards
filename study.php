@@ -30,6 +30,9 @@ $cards = json_decode(trim($cards), true);
 	<div id="topContainer">
 		
 	</div>
+	<div id="sideDiv">
+		
+	</div>
 	<div id="container">
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
