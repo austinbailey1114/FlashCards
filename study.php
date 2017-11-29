@@ -27,6 +27,9 @@ $cards = json_decode(trim($cards), true);
 	<link rel="stylesheet" type="text/css" href="./css/study.css">
 </head>
 <body>
+	<div id="topContainer">
+		
+	</div>
 	<div id="container">
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
@@ -44,8 +47,10 @@ $cards = json_decode(trim($cards), true);
 		<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
 		<button>Add Card</button>
 	</form>
-	<button id="shuffle">Shuffle</button>
-	<button id="studyOppositeSide">View def first</button>
+	<div>
+		<button id="shuffle">Shuffle</button>
+		<button id="studyOppositeSide">View def first</button>
+	</div>
 </body>
 
 <script type="text/javascript">

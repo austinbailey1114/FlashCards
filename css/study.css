@@ -1,5 +1,14 @@
 body {
 	font-family: 'Roboto';
+	background-color: #00A5F7;
+	margin:0;
+	padding: 0;
+
+}
+
+div {
+	margin:0px;
+	padding: 0px;
 }
 
 h2 {
@@ -14,18 +23,25 @@ button {
 	display: block;
 }
 
+#topContainer {
+	height: 90px;
+	background-color: white;
+	padding: 0px;
+}
+
 #card {
 	text-align: center;
 	margin: auto;
-	margin-top: 18%;
-	border: 1px solid #DCDCDC;
-	border-radius: 3px;
+	margin-top: 13%;
+	border: 0px solid #DCDCDC;
+	border-radius: 15px;
 	width: 35%;
-	height: 250px;
+	height: 275px;
+	background-color: white;
 }
 
 #cardDisplay {
-	line-height: 200px;
+	line-height: 275px;
 }
 
 #previousCard {
@@ -39,6 +55,7 @@ button {
 
 #cardInteract {
 	margin:auto;
+	margin-top: 20px;
 	width: 30%;
 	text-align: center;
 }
