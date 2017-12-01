@@ -1,6 +1,6 @@
 body {
 	font-family: 'Roboto';
-	background-color: #00A5F7;
+	background-color: #39CBFE;
 	margin:0;
 	padding: 0;
 
@@ -28,6 +28,12 @@ h2 {
 	display: fixed;
 }
 
+#title {
+	line-height: 90px;
+	margin-left: 3.6%;
+	font-weight: 400;
+}
+
 #container, #sideDiv {
 	display: inline-block;
 }
@@ -37,6 +43,13 @@ h2 {
 	height: 1000px;
 	background-color: white;
 	position: fixed;
+	text-align: center;
+}
+
+#displayCount {
+	margin-top: 40px;
+	font-weight: 200;
+	font-size: 18px;
 }
 
 #container {
@@ -94,8 +107,16 @@ h2 {
 
 #options {
 	margin:auto;
-	margin-top: 80px;
-	width: 75%;
+	width: 100%;
+	text-align: center;
+}
+
+#options button {
+	margin:auto;
+	margin-top: 50px;
+	border:none;
+	font-weight: 200;
+	font-size: 18px;
 }
 
 #suffle, #studyOppositeSide {

@@ -31,7 +31,7 @@
 		foreach ($topics as $topic) {
 			echo "<div>";
 			echo "Topic name: " . $topic['name'];
-			echo "<a href=./study.php?topic_id=" . $topic['id'] . "&title=" .  $topic['name'] . ">View topic</a>";
+			echo "<a href=./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . ">View topic</a>";
 			echo "</div>";
 		}
 

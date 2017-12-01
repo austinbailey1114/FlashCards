@@ -28,13 +28,13 @@ $cards = json_decode(trim($cards), true);
 </head>
 <body>
 	<div id="topContainer">
-		<h2> <?php echo $title; ?></h2>
+		<h2 id="title"><?php echo $title; ?></h2>
 	</div>
 	<div id="sideDiv">
 		<p id="displayCount"></p>
 		<div id="options">
 			<button id="shuffle">Shuffle</button>
-			<button id="studyOppositeSide">View def first</button>
+			<button id="studyOppositeSide">Definition First</button>
 		</div>
 	</div>
 	<div id="container">
