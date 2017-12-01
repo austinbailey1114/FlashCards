@@ -66,6 +66,7 @@ a {
 	margin-left: 3.6%;
 	font-weight: 400;
 	color: white;
+	font-size: 30px;
 }
 
 #container, #sideDiv {
@@ -86,11 +87,16 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: none;
+  	background-color: white;
   	font-size: 40px;
    	font-weight: 500;
    	color: #F6A74B;
    	width: 60px;
+}
+
+#newCard:hover {
+	cursor: pointer;
+	font-size: 48px;
 }
 
 #displayCount {
@@ -129,10 +135,12 @@ a {
 
 #previousCard {
 	float: left;
+	margin-left:10%;
 }
 
 #nextCard {
 	float: right;
+	margin-right: 10%;
 }
 
 #previousCard, #nextCard, #flipCard {
@@ -145,7 +153,7 @@ a {
 	text-align: center;
 	border-radius: 15px;
 	height: 70px;
-	width: 80%;
+	width: 100%;
 }
 
 #cardInteract button {
@@ -158,6 +166,11 @@ a {
    	color: white;
    	width: 60px;
    	border-radius: 50%;
+   	position: relative;
+}
+
+#cardInteract button:hover {
+	cursor: pointer;
 }
 
 #options {
@@ -181,7 +194,6 @@ a {
 }
 
 #options button:hover {
-	color: #F2F2F2;
 	cursor: pointer;
 }
 

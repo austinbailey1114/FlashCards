@@ -50,7 +50,7 @@ $cards = json_decode(trim($cards), true);
 			<button id="flipCard">Flip</button>
 		</div>
 	</div>
-	<form action="./api/insertCard.php" method="post" style="display: none;">
+	<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
 		<input type="text" name="title" id="titleInput">
 		<input type="text" name="definition" id="definitionInput">
 		<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
@@ -70,40 +70,33 @@ $cards = json_decode(trim($cards), true);
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
 
-	/*
-	* Change display to the next card in the current set
-	*/
+	//user interaction with cards through button clicks
+
 	$('#nextCard').click(function() {
-		try {
-			card.innerHTML = cards[++counter][startWithSide];
-		} catch(err) {
-			counter = 0;
-			card.innerHTML = cards[counter][startWithSide];
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;	
+		//call incrementCard when button is clicked
+		incrementCard();
 	});
 
-	/* 
-	* Change display to the previous card in the current set 
-	*/ 
 	$('#previousCard').click(function() {
-		try {
-			card.innerHTML = cards[--counter][startWithSide];
-		} catch (err) {
-			counter = cards.length - 1;
-			card.innerHTML = cards[counter][startWithSide];
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+		//call decrementcard when button is clicked
+		decrementCard();
 	});
 		
-	/*
-	* Toggle which side of the card is displayed
-	*/
 	$('#flipCard').click(function() {
-		if (card.innerHTML == cards[counter]['title']) {
-			card.innerHTML = cards[counter]['definition'];
-		} else {
-			card.innerHTML = cards[counter]['title'];
+		//call flipCard when button is clicked
+		flipCard();
+	});
+
+	//user interaction with cards through arrow keys
+	$(document).keydown(function(e) {
+		console.log("pressed");
+		console.log(e);
+		if (e.key == "ArrowRight") {
+			incrementCard();
+		} else if (e.key == "ArrowUp") {
+			flipCard();
+		} else if (e.key == "ArrowLeft") {
+			decrementCard();
 		}
 	});
 
@@ -138,6 +131,47 @@ $cards = json_decode(trim($cards), true);
 		}
 		card.innerHTML = cards[counter][startWithSide];
 	});
+
+	$('#newCard').click(function() {
+		$('#newCardForm').css('display', 'block');
+	});
+
+	function incrementCard() {
+		/*
+		* Change display to the next card in the current set
+		*/
+		try {
+			card.innerHTML = cards[++counter][startWithSide];
+		} catch(err) {
+			counter = 0;
+			card.innerHTML = cards[counter][startWithSide];
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+	}
+
+	function decrementCard() {
+		/* 
+		* Change display to the previous card in the current set 
+		*/ 
+		try {
+			card.innerHTML = cards[--counter][startWithSide];
+		} catch (err) {
+			counter = cards.length - 1;
+			card.innerHTML = cards[counter][startWithSide];
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+	}
+
+	function flipCard() {
+		/*
+		* Toggle which side of the card is displayed
+		*/
+		if (card.innerHTML == cards[counter]['title']) {
+			card.innerHTML = cards[counter]['definition'];
+		} else {
+			card.innerHTML = cards[counter]['title'];
+		}
+	}
 	
 </script>
 </html>
