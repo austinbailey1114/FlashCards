@@ -29,10 +29,7 @@ $cards = json_decode(trim($cards), true);
 <body>
 	<div id="topContainer">
 		<h2 id="title"><?php echo $title; ?></h2>
-		<di id="topOptions">
-			<p>Back to Topics</p>
-			<p>Log Out</p>
-		</div>
+		<a id="topics">Back to Topics</a>
 	</div>
 	<div id="sideDiv">
 		<p id="displayCount"></p>
