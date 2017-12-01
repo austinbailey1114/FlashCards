@@ -69,7 +69,13 @@ $cards = json_decode(trim($cards), true);
 	var previousCard = document.getElementById('previousCard');
 	var flipCard = document.getElementById('flipCard');
 	var shuffle = document.getElementById('shuffle');
-	var studyOppositeSide = document.getElementById('studyOppositeSide'); 
+	var studyOppositeSide = document.getElementById('studyOppositeSide');
+
+	// $('#nextCard').click(function() {
+	//	 incrementCard();
+	// });
+
+
 
 	nextCard.addEventListener('click', function() { incrementCard(); });
 	previousCard.addEventListener('click', function() { decrementCard(); });
