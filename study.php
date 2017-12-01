@@ -29,6 +29,10 @@ $cards = json_decode(trim($cards), true);
 <body>
 	<div id="topContainer">
 		<h2 id="title"><?php echo $title; ?></h2>
+		<di id="topOptions">
+			<p>Back to Topics</p>
+			<p>Log Out</p>
+		</div>
 	</div>
 	<div id="sideDiv">
 		<p id="displayCount"></p>
@@ -42,8 +46,8 @@ $cards = json_decode(trim($cards), true);
 			<h2 id="cardDisplay"></h2>
 		</div>
 		<div id="cardInteract">
-			<button id="nextCard">Next</button>
-			<button id="previousCard">Prev</button>
+			<button id="nextCard" class="arrow">></button>
+			<button id="previousCard" class="arrow"><</button>
 			<button id="flipCard">Flip</button>
 		</div>
 	</div>
