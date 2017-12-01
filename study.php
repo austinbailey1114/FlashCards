@@ -38,6 +38,7 @@ $cards = json_decode(trim($cards), true);
 			<button id="shuffle">Shuffle</button>
 			<button id="studyOppositeSide">Definition First</button>
 		</div>
+		<button id="newCard">+</button>
 	</div>
 	<div id="container">
 		<div id="card">
@@ -130,8 +131,10 @@ $cards = json_decode(trim($cards), true);
 	$('#studyOppositeSide').click(function() {
 		if (startWithSide == 'title') {
 			startWithSide = 'definition';
+			$('#studyOppositeSide').html("Title First");
 		} else {
 			startWithSide = 'title';
+			$('#studyOppositeSide').html("Definition First");
 		}
 		card.innerHTML = cards[counter][startWithSide];
 	});

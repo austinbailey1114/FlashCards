@@ -80,6 +80,19 @@ a {
 	text-align: center;
 }
 
+#newCard {
+	margin:auto;
+	margin-top: 30px;
+	height: 60px;
+  	border: 0px solid #DCDCDC;
+  	border-radius: 0px;
+  	background-color: none;
+  	font-size: 40px;
+   	font-weight: 500;
+   	color: #F6A74B;
+   	width: 60px;
+}
+
 #displayCount {
 	margin:auto;
 	margin-top: 30px;
