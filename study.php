@@ -44,7 +44,7 @@ $cards = json_decode(trim($cards), true);
 		<div id="cardInteract">
 			<button id="nextCard">Next</button>
 			<button id="previousCard">Prev</button>
-			<button id="flipCard">Flip Card</button>
+			<button id="flipCard">Flip</button>
 		</div>
 	</div>
 	<form action="./api/insertCard.php" method="post" style="display: none;">
