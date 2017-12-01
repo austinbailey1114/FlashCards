@@ -59,6 +59,8 @@ $cards = json_decode(trim($cards), true);
 </body>
 
 <script type="text/javascript">
+
+	//counter will keep track of which index in the array is shown
 	var counter = 0;
 	var cards = <?php echo json_encode($cards); ?>;
 	var card = document.getElementById('cardDisplay');
@@ -67,6 +69,9 @@ $cards = json_decode(trim($cards), true);
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
 
+	/*
+	* Change display to the next card in the current set
+	*/
 	$('#nextCard').click(function() {
 		try {
 			card.innerHTML = cards[++counter][startWithSide];
@@ -77,6 +82,9 @@ $cards = json_decode(trim($cards), true);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;	
 	});
 
+	/* 
+	* Change display to the previous card in the current set 
+	*/ 
 	$('#previousCard').click(function() {
 		try {
 			card.innerHTML = cards[--counter][startWithSide];
@@ -87,6 +95,9 @@ $cards = json_decode(trim($cards), true);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	});
 		
+	/*
+	* Toggle which side of the card is displayed
+	*/
 	$('#flipCard').click(function() {
 		if (card.innerHTML == cards[counter]['title']) {
 			card.innerHTML = cards[counter]['definition'];
@@ -95,6 +106,10 @@ $cards = json_decode(trim($cards), true);
 		}
 	});
 
+	/*
+	* Shuffle the deck using my implementation of the Fisher-Yates shuffle
+	* on an array
+	*/
 	$('#shuffle').click(function() {
 		var backIndex = cards.length-1;
 		while (backIndex > 0) {
@@ -109,6 +124,9 @@ $cards = json_decode(trim($cards), true);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	});
 
+	/*
+	* Toggle the starting view of cards as title side or definition side
+	*/
 	$('#studyOppositeSide').click(function() {
 		if (startWithSide == 'title') {
 			startWithSide = 'definition';
@@ -118,22 +136,5 @@ $cards = json_decode(trim($cards), true);
 		card.innerHTML = cards[counter][startWithSide];
 	});
 	
-
 </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
