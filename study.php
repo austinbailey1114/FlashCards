@@ -25,6 +25,7 @@ $cards = json_decode(trim($cards), true);
 	<title><?php echo $title; ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/study.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="topContainer">
@@ -66,25 +67,35 @@ $cards = json_decode(trim($cards), true);
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
 
-	var nextCard = document.getElementById('nextCard');
-	var previousCard = document.getElementById('previousCard');
-	var flipCard = document.getElementById('flipCard');
-	var shuffle = document.getElementById('shuffle');
-	var studyOppositeSide = document.getElementById('studyOppositeSide');
+	$('#nextCard').click(function() {
+		try {
+			card.innerHTML = cards[++counter][startWithSide];
+		} catch(err) {
+			counter = 0;
+			card.innerHTML = cards[counter][startWithSide];
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;	
+	});
 
-	// $('#nextCard').click(function() {
-	//	 incrementCard();
-	// });
+	$('#previousCard').click(function() {
+		try {
+			card.innerHTML = cards[--counter][startWithSide];
+		} catch (err) {
+			counter = cards.length - 1;
+			card.innerHTML = cards[counter][startWithSide];
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+	});
+		
+	$('#flipCard').click(function() {
+		if (card.innerHTML == cards[counter]['title']) {
+			card.innerHTML = cards[counter]['definition'];
+		} else {
+			card.innerHTML = cards[counter]['title'];
+		}
+	});
 
-
-
-	nextCard.addEventListener('click', function() { incrementCard(); });
-	previousCard.addEventListener('click', function() { decrementCard(); });
-	flipCard.addEventListener('click', function() { flip(); });
-	shuffle.addEventListener('click', function() { shuffleCards(); });
-	studyOppositeSide.addEventListener('click', function() { invertSide(); });
-
-	function shuffleCards() {
+	$('#shuffle').click(function() {
 		var backIndex = cards.length-1;
 		while (backIndex > 0) {
 			var randomIndex = Math.floor(Math.random() * backIndex);
@@ -96,45 +107,17 @@ $cards = json_decode(trim($cards), true);
 		counter = 0;
 		card.innerHTML = cards[counter][startWithSide];
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
-	}
+	});
 
-	function invertSide() {
+	$('#studyOppositeSide').click(function() {
 		if (startWithSide == 'title') {
 			startWithSide = 'definition';
 		} else {
 			startWithSide = 'title';
 		}
 		card.innerHTML = cards[counter][startWithSide];
-
-	}
-
-	function incrementCard() {
-		try {
-			card.innerHTML = cards[++counter][startWithSide];
-		} catch(err) {
-			counter = 0;
-			card.innerHTML = cards[counter][startWithSide];
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;	
-	}
-
-	function decrementCard() {
-		try {
-			card.innerHTML = cards[--counter][startWithSide];
-		} catch (err) {
-			counter = cards.length - 1;
-			card.innerHTML = cards[counter][startWithSide];
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;
-	}
-
-	function flip() {
-		if (card.innerHTML == cards[counter]['title']) {
-			card.innerHTML = cards[counter]['definition'];
-		} else {
-			card.innerHTML = cards[counter]['title'];
-		}
-	}
+	});
+	
 
 </script>
 </html>
