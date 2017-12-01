@@ -13,15 +13,8 @@ div {
 
 h2 {
 	font-weight: 200;
-}
-
-button {
-  height: 100%;
-  border: 0px solid #DCDCDC;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 13px;
-  font-weight: 200;
+	margin:0;
+	padding: 0;
 }
 
 .show {
@@ -32,13 +25,10 @@ button {
 	height: 90px;
 	background-color: white;
 	padding: 0px;
+	display: fixed;
 }
 
 #container, #sideDiv {
-	display: inline-block;
-}
-
-#sideDiv, #options {
 	display: inline-block;
 }
 
@@ -93,17 +83,22 @@ button {
 	width: 57%;
 }
 
+#cardInteract button {
+  height: 100%;
+  border: 0px solid #DCDCDC;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 13px;
+  font-weight: 200;
+}
+
 #options {
 	margin:auto;
 	margin-top: 80px;
 	width: 75%;
 }
 
-#shuffle {
-	float:left;
-}
-
-#studyOppositeSide {
-	float: right;
+#suffle, #studyOppositeSide {
+	display: block;
 }
 

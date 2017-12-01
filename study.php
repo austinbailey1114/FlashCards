@@ -28,10 +28,14 @@ $cards = json_decode(trim($cards), true);
 </head>
 <body>
 	<div id="topContainer">
-		
+		<h2> <?php echo $title; ?></h2>
 	</div>
 	<div id="sideDiv">
 		<p id="displayCount"></p>
+		<div id="options">
+			<button id="shuffle">Shuffle</button>
+			<button id="studyOppositeSide">View def first</button>
+		</div>
 	</div>
 	<div id="container">
 		<div id="card">
@@ -41,10 +45,6 @@ $cards = json_decode(trim($cards), true);
 			<button id="nextCard">Next</button>
 			<button id="previousCard">Prev</button>
 			<button id="flipCard">Flip Card</button>
-		</div>
-		<div id="options">
-			<button id="shuffle">Shuffle</button>
-			<button id="studyOppositeSide">View def first</button>
 		</div>
 	</div>
 	<form action="./api/insertCard.php" method="post" style="display: none;">
