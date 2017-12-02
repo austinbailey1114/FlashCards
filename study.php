@@ -44,19 +44,19 @@ $cards = json_decode(trim($cards), true);
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
 		</div>
+		<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
+			<input type="text" name="title" id="titleInput" placeholder="Front Side">
+			<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
+			<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
+			<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
+		<button id="addCard">Add Card</button>
+	</form>
 		<div id="cardInteract">
 			<button id="nextCard" class="arrow">></button>
 			<button id="previousCard" class="arrow"><</button>
 			<button id="flipCard">Flip</button>
 		</div>
 	</div>
-	<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
-		<input type="text" name="title" id="titleInput">
-		<input type="text" name="definition" id="definitionInput">
-		<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
-		<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
-		<button>Add Card</button>
-	</form>
 </body>
 
 <script type="text/javascript">
@@ -120,10 +120,12 @@ $cards = json_decode(trim($cards), true);
 
 	$('#newCard').click(function() {
 		$('#card').animate({
-			marginLeft: "125%",
-		}, 500, function() {
+			marginLeft: "200%",
+		}, 800, function() {
 			$('#card').css('display', 'none');
 			$('#newCardForm').css('display', 'block');
+			$('#definitionInput').css('display', 'none');
+			$('#addCard').css('display', 'none');
 		});
 	})
 
