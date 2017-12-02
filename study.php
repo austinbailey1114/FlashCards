@@ -49,7 +49,7 @@ $cards = json_decode(trim($cards), true);
 				<input type="text" name="title" id="titleInput" placeholder="Front Side">
 				<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
 				<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
-				<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
+				<input type="text" name="topic_title" value=<?php echo urlencode($title); ?> style="display: none;">
 				<button id="addCard">Add Card</button>
 			</form>
 		</div>
