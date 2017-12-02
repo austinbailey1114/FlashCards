@@ -44,13 +44,15 @@ $cards = json_decode(trim($cards), true);
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
 		</div>
-		<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
-			<input type="text" name="title" id="titleInput" placeholder="Front Side">
-			<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
-			<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
-			<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
-		<button id="addCard">Add Card</button>
-	</form>
+		<div id="newCardDiv" style="display:none;">
+			<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
+				<input type="text" name="title" id="titleInput" placeholder="Front Side">
+				<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
+				<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
+				<input type="text" name="topic_title" value=<?php echo $title; ?> style="display: none;">
+				<button id="addCard">Add Card</button>
+			</form>
+		</div>
 		<div id="cardInteract">
 			<button id="nextCard" class="arrow">></button>
 			<button id="previousCard" class="arrow"><</button>
@@ -58,7 +60,6 @@ $cards = json_decode(trim($cards), true);
 		</div>
 	</div>
 </body>
-
 <script type="text/javascript">
 
 	//counter will keep track of which index in the array is shown
@@ -124,8 +125,10 @@ $cards = json_decode(trim($cards), true);
 		}, 800, function() {
 			$('#card').css('display', 'none');
 			$('#newCardForm').css('display', 'block');
+			$('#newCardDiv').css('display', 'block');
 			$('#definitionInput').css('display', 'none');
 			$('#addCard').css('display', 'none');
+			$('#titleInput').focus();
 		});
 	})
 
