@@ -30,7 +30,7 @@ $cards = json_decode(trim($cards), true);
 <body>
 	<div id="topContainer">
 		<h2 id="title"><?php echo $title; ?></h2>
-		<a id="topics">Back to Topics</a>
+		<a id="topics" href="./index.php">Back to Topics</a>
 	</div>
 	<div id="sideDiv">
 		<p id="displayCount"></p>
@@ -89,14 +89,14 @@ $cards = json_decode(trim($cards), true);
 
 	//user interaction with cards through arrow keys
 	$(document).keydown(function(e) {
-		console.log("pressed");
-		console.log(e);
 		if (e.key == "ArrowRight") {
 			incrementCard();
 		} else if (e.key == "ArrowUp") {
 			flipCard();
 		} else if (e.key == "ArrowLeft") {
 			decrementCard();
+		} else if (e.key == "ArrowDown") {
+			flipCard();
 		}
 	});
 
@@ -118,6 +118,15 @@ $cards = json_decode(trim($cards), true);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	});
 
+	$('#newCard').click(function() {
+		$('#card').animate({
+			marginLeft: "125%",
+		}, 500, function() {
+			$('#card').css('display', 'none');
+			$('#newCardForm').css('display', 'block');
+		});
+	})
+
 	/*
 	* Toggle the starting view of cards as title side or definition side
 	*/
@@ -130,10 +139,6 @@ $cards = json_decode(trim($cards), true);
 			$('#studyOppositeSide').html("Definition First");
 		}
 		card.innerHTML = cards[counter][startWithSide];
-	});
-
-	$('#newCard').click(function() {
-		$('#newCardForm').css('display', 'block');
 	});
 
 	function incrementCard() {
