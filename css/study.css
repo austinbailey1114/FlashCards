@@ -135,14 +135,14 @@ a {
 #newCardDiv {
 	text-align: center;
 	margin:auto;
-	margin-left: -200%;
 	margin-top: 7%;
 	border: 0px solid #DCDCDC;
 	border-radius: 15px;
 	width: 50%;
 	height: 440px;
 	background-color: white;
-	margin-left: -200%;
+	margin-left: 10%;
+	opacity: 0.2;
 	position: absolute;
 }
 

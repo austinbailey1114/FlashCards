@@ -120,10 +120,16 @@ $cards = json_decode(trim($cards), true);
 	});
 
 	$('#newCard').click(function() {
+		/*
+		* slide both divs to the right simulaneously
+		*/
 		$('#newCardDiv').css('display', 'block');
-		$('#newCardForm').css('display', 'none');
+		$('#newCardForm').css('display', 'block');
+		$('#definitionInput').css('display', 'none');
+		$('#addCard').css('display', 'none');
 		$('#card').animate({
-			marginLeft: "200%",
+			marginLeft: "80%",
+			opacity: 0,
 		}, 600, function() {
 			$('#card').css('display', 'none');
 			$('#definitionInput').css('display', 'none');
@@ -131,9 +137,9 @@ $cards = json_decode(trim($cards), true);
 			$('#titleInput').focus();
 		});
 		$('#newCardDiv').animate({
-			marginLeft: '25%', 
+			marginLeft: '25%',
+			opacity: 1, 
 		}, 600, function() {
-			$('#newCardForm').css('display', 'block');
 			$('#titleInput').focus();
 		});
 	});
