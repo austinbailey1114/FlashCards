@@ -144,7 +144,6 @@ $cards = json_decode(trim($cards), true);
 		});
 	});
 
-
 	/*
 	* Toggle the starting view of cards as title side or definition side
 	*/
@@ -189,12 +188,34 @@ $cards = json_decode(trim($cards), true);
 		/*
 		* Toggle which side of the card is displayed
 		*/
+		$('#card').animate({
+			width: '0',
+			marginLeft: '50%',
+		}, 300, function() {
+			$('#card').animate({
+				width: '50%',
+				marginLeft: '25%',
+			}, 300, function() {
+
+			})
+		});
 		if (card.innerHTML == cards[counter]['title']) {
 			card.innerHTML = cards[counter]['definition'];
 		} else {
 			card.innerHTML = cards[counter]['title'];
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
 	
 </script>
 </html>
