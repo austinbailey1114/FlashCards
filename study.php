@@ -131,7 +131,7 @@ $cards = json_decode(trim($cards), true);
 			$('#titleInput').focus();
 		});
 		$('#newCardDiv').animate({
-			marginLeft: '20%', 
+			marginLeft: '0%', 
 		}, 800, function() {
 			console.log('done');
 		});
