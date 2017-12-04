@@ -120,17 +120,23 @@ $cards = json_decode(trim($cards), true);
 	});
 
 	$('#newCard').click(function() {
+		$('#newCardForm').css('display', 'block');
+		$('#newCardDiv').css('display', 'block');
 		$('#card').animate({
 			marginLeft: "200%",
 		}, 800, function() {
 			$('#card').css('display', 'none');
-			$('#newCardForm').css('display', 'block');
-			$('#newCardDiv').css('display', 'block');
 			$('#definitionInput').css('display', 'none');
 			$('#addCard').css('display', 'none');
 			$('#titleInput').focus();
 		});
-	})
+		$('#newCardDiv').animate({
+			marginLeft: '20%', 
+		}, 800, function() {
+			console.log('done');
+		});
+	});
+
 
 	/*
 	* Toggle the starting view of cards as title side or definition side

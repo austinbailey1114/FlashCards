@@ -112,11 +112,11 @@ a {
 }
 
 #container {
-	width: 50%;
+	width: 1680px;
+	height: 652px;
 	margin:auto;
 	margin-top: 7%;
 	margin-left: 25%;
-	text-align: center;
 }
 
 #card {
@@ -124,9 +124,14 @@ a {
 	margin: auto;
 	border: 0px solid #DCDCDC;
 	border-radius: 15px;
-	width: 100%;
+	width: 50%;
 	height: 440px;
 	background-color: white;
+	position: absolute;
+}
+
+#card, #newCardDiv {
+	display: inline-block;
 }
 
 #newCardForm {
@@ -138,9 +143,11 @@ a {
 	margin:auto;
 	border: 0px solid #DCDCDC;
 	border-radius: 15px;
-	width: 100%;
+	width: 50%;
 	height: 440px;
 	background-color: white;
+	margin-left: -200%;
+	position: absolute;
 }
 
 #newCardForm input {
@@ -181,11 +188,12 @@ a {
 
 #cardInteract {
 	margin:auto;
-	margin-top: 40px;
+	margin-top: 480px;
 	text-align: center;
 	border-radius: 15px;
 	height: 70px;
-	width: 100%;
+	width: 50%;
+	position: absolute;
 }
 
 #cardInteract button {
