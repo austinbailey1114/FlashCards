@@ -122,7 +122,6 @@ a {
 	height: 440px;
 	background-color: white;
 	position: absolute;
-	z-index: 2;
 }
 
 #altCard {
@@ -136,7 +135,7 @@ a {
 	height: 440px;
 	background-color: white;
 	position: absolute;
-	z-index: 1;
+	display: none;
 }
 
 #card, #newCardDiv {

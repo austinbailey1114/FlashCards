@@ -67,15 +67,12 @@ $cards = json_decode(trim($cards), true);
 
 	//counter will keep track of which index in the array is shown
 	var counter = 0;
+	//array of cards to work with
 	var cards = <?php echo json_encode($cards); ?>;
-	var card = document.getElementById('cardDisplay');
-	var altCard = document.getElementById('altCardDisplay');
 	var displayCount = document.getElementById('displayCount');
 	displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	var startWithSide = 'title';
-	card.innerHTML = cards[counter][startWithSide];
-	var topCard = '#card';
-	var bottomCard = '#altCard';
+	$('#cardDisplay').html(cards[counter][startWithSide])
 
 	//user interaction with cards through button clicks
 
@@ -121,7 +118,7 @@ $cards = json_decode(trim($cards), true);
 			backIndex--;
 		}
 		counter = 0;
-		card.innerHTML = cards[counter][startWithSide];
+		$(topCard + 'Display').html(cards[counter][startWithSide]);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	});
 
@@ -168,30 +165,26 @@ $cards = json_decode(trim($cards), true);
 		/*
 		* Change display to the next card in the current set
 		*/
-		$(topCard).animate({
+		$('#altCardDisplay').html($('#cardDisplay').html());
+		$('#altCard').css('display', 'block');
+
+		try {
+			$('#cardDisplay').html(cards[++counter][startWithSide]);
+		} catch(err) {
+			counter = 0;
+			$('#cardDisplay').html(cards[counter][startWithSide]);
+		}
+
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+
+		$('#altCard').animate({
 			marginLeft: '50%',
 			opacity: '0'
 		}, 300, function() {
-			//update z-indices to hide unwanted card
-			$(topCard).css('z-index', '1');
-			$(bottomCard).css('z-index', '2');
-			$(topCard).css('margin-left', '25%');
-			$(topCard).css('opacity', '1');
-
-			//swap topCard
-			[topCard, bottomCard] = [bottomCard, topCard];
-			console.log('top: ' + topCard + ' bottom: ' + bottomCard);
-
-		});
-
-		//this code executes before the animation is finished, sets the bottom cards display
-		try {
-			$(bottomCard + 'Display').html(cards[++counter][startWithSide]);
-		} catch(err) {
-			counter = 0;
-			$(bottomCard + 'Display').html(cards[counter][startWithSide]);
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+			$('#altCard').css('display', 'none');	
+			$('#altCard').css('margin-left', '25%');
+			$('#altCard').css('opacity', '1');		
+		});		
 
 	}
 
@@ -221,9 +214,9 @@ $cards = json_decode(trim($cards), true);
 			opacity: 0.2,
 		}, 100, function() {
 			if ($(topCard + 'Display').html() == cards[counter]['title']) {
-				$(topCard + 'Display').html(card.innerHTML = cards[counter]['definition']);
+				$(topCard + 'Display').html(cards[counter]['definition']);
 			} else {
-				$(topCard + 'Display').html(card.innerHTML = cards[counter]['title']);
+				$(topCard + 'Display').html(cards[counter]['title']);
 			}
 			$(topCard).animate({
 				width: '50%',
@@ -236,17 +229,6 @@ $cards = json_decode(trim($cards), true);
 		});
 		
 	}
-
-
-
-
-
-
-
-
-
-
-
 	
 </script>
 </html>
