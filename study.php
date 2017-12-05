@@ -118,7 +118,7 @@ $cards = json_decode(trim($cards), true);
 			backIndex--;
 		}
 		counter = 0;
-		$(topCard + 'Display').html(cards[counter][startWithSide]);
+		$('#cardDisplay').html(cards[counter][startWithSide]);
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	});
 
@@ -167,11 +167,12 @@ $cards = json_decode(trim($cards), true);
 		*/
 		$('#altCardDisplay').html($('#cardDisplay').html());
 		$('#altCard').css('display', 'block');
-		//set these properties back to normal in case animation is currently running
+		//stop animation and set properties back to normal in case animation is currently running
 		$('#altCard').stop(true);
 		$('#altCard').css('margin-left', '25%');
 		$('#altCard').css('opacity', '1');	
 
+		//increment to next value in array
 		try {
 			$('#cardDisplay').html(cards[++counter][startWithSide]);
 		} catch(err) {
@@ -200,7 +201,7 @@ $cards = json_decode(trim($cards), true);
 			$('#cardDisplay').html(cards[--counter][startWithSide]);
 		} catch (err) {
 			counter = cards.length - 1;
-			card.innerHTML = cards[counter][startWithSide];
+			$('#cardDisplay').html(cards[counter][startWithSide]);
 		}
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	}
@@ -211,24 +212,22 @@ $cards = json_decode(trim($cards), true);
 		*/
 
 		//need to hide bottom card for animation
-		$(bottomCard).css('display', 'none');
-		$(topCard).animate({
+		$('#card').animate({
 			width: '0',
 			marginLeft: '50%',
 			opacity: 0.2,
 		}, 100, function() {
-			if ($(topCard + 'Display').html() == cards[counter]['title']) {
-				$(topCard + 'Display').html(cards[counter]['definition']);
+			if ($('#cardDisplay').html() == cards[counter]['title']) {
+				$('#cardDisplay').html(cards[counter]['definition']);
 			} else {
-				$(topCard + 'Display').html(cards[counter]['title']);
+				$('#cardDisplay').html(cards[counter]['title']);
 			}
-			$(topCard).animate({
+			$('#card').animate({
 				width: '50%',
 				marginLeft: '25%',
 				opacity: 1
 			}, 100, function() {
-				//bring bottom card back
-				$(bottomCard).css('display', 'block');
+
 			})
 		});
 		
