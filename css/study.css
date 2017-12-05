@@ -34,7 +34,7 @@ a {
 
 #topContainer {
 	height: 90px;
-	background-color: #354AB4;
+	background-color: #E96B56;
 	padding: 0px;
 	display: fixed;
 }
@@ -51,7 +51,7 @@ a {
 	margin-top: 22.5px;
 	line-height: 45px;
 	margin-right: 3.6%;
-	background-color: #F6A74B;
+	background-color: #31C3D9;
 	float: right;
 	text-align: center;
 	font-size: 18px;
@@ -76,7 +76,7 @@ a {
 #sideDiv {
 	width: 10%;
 	height: 1000px;
-	background-color: white;
+	background-color: #F8F8F8;
 	position: fixed;
 	text-align: center;
 }
@@ -87,10 +87,10 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: white;
+  	background-color: #F8F8F8;
   	font-size: 40px;
    	font-weight: 500;
-   	color: #F6A74B;
+   	color: #31C3D9;
    	width: 60px;
 }
 
@@ -106,7 +106,7 @@ a {
 	font-size: 18px;
 	height: 70px;
 	width: 70px;
-	border: 2px solid #F6A74B;
+	border: 2px solid #31C3D9;
 	border-radius: 50%;
 	line-height: 70px;
 }
@@ -215,7 +215,7 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: #F6A74B;
+  	background-color: #31C3D9;
   	font-size: 14px;
    	font-weight: 400;
    	color: white;
@@ -244,7 +244,7 @@ a {
 	border-radius: 0px;
 	font-weight: 400;
 	font-size: 18px;
-	background-color: #F6A74B;
+	background-color: #31C3D9;
 	color: white;
 }
 
