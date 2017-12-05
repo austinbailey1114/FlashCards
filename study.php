@@ -161,7 +161,7 @@ $cards = json_decode(trim($cards), true);
 			startWithSide = 'title';
 			$('#studyOppositeSide').html("Definition First");
 		}
-		card.innerHTML = cards[counter][startWithSide];
+		$(topCard + 'Display').html(cards[counter][startWithSide]);
 	});
 
 	function incrementCard() {
@@ -171,7 +171,8 @@ $cards = json_decode(trim($cards), true);
 		$(topCard).animate({
 			marginLeft: '50%',
 			opacity: '0'
-		}, 600, function() {
+		}, 300, function() {
+			//update z-indices to hide unwanted card
 			$(topCard).css('z-index', '1');
 			$(bottomCard).css('z-index', '2');
 			$(topCard).css('margin-left', '25%');
@@ -183,6 +184,7 @@ $cards = json_decode(trim($cards), true);
 
 		});
 
+		//this code executes before the animation is finished, sets the bottom cards display
 		try {
 			$(bottomCard + 'Display').html(cards[++counter][startWithSide]);
 		} catch(err) {
@@ -210,22 +212,26 @@ $cards = json_decode(trim($cards), true);
 		/*
 		* Toggle which side of the card is displayed
 		*/
-		$('#card').animate({
+
+		//need to hide bottom card for animation
+		$(bottomCard).css('display', 'none');
+		$(topCard).animate({
 			width: '0',
 			marginLeft: '50%',
 			opacity: 0.2,
 		}, 100, function() {
-			if (card.innerHTML == cards[counter]['title']) {
-				card.innerHTML = cards[counter]['definition'];
+			if ($(topCard + 'Display').html() == cards[counter]['title']) {
+				$(topCard + 'Display').html(card.innerHTML = cards[counter]['definition']);
 			} else {
-				card.innerHTML = cards[counter]['title'];
+				$(topCard + 'Display').html(card.innerHTML = cards[counter]['title']);
 			}
-			$('#card').animate({
+			$(topCard).animate({
 				width: '50%',
 				marginLeft: '25%',
 				opacity: 1
 			}, 100, function() {
-
+				//bring bottom card back
+				$(bottomCard).css('display', 'block');
 			})
 		});
 		
