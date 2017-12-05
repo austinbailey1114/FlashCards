@@ -44,6 +44,9 @@ $cards = json_decode(trim($cards), true);
 		<div id="card">
 			<h2 id="cardDisplay"></h2>
 		</div>
+		<div id="altCard">
+			<h2 id="altCardDisplay"></h2>
+		</div>
 		<div id="newCardDiv" style="display:none;">
 			<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
 				<input type="text" name="title" id="titleInput" placeholder="Front Side">
@@ -70,6 +73,7 @@ $cards = json_decode(trim($cards), true);
 	displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
+	var topCard = '#card';
 
 	//user interaction with cards through button clicks
 
@@ -162,6 +166,12 @@ $cards = json_decode(trim($cards), true);
 		/*
 		* Change display to the next card in the current set
 		*/
+		$('#card').animate({
+			marginLeft: '50%',
+			opacity: '0'
+		}, 600, function() {
+			$('#card').css('display', 'none')
+		});
 		try {
 			card.innerHTML = cards[++counter][startWithSide];
 		} catch(err) {
@@ -191,19 +201,22 @@ $cards = json_decode(trim($cards), true);
 		$('#card').animate({
 			width: '0',
 			marginLeft: '50%',
-		}, 300, function() {
+			opacity: 0.2,
+		}, 100, function() {
+			if (card.innerHTML == cards[counter]['title']) {
+				card.innerHTML = cards[counter]['definition'];
+			} else {
+				card.innerHTML = cards[counter]['title'];
+			}
 			$('#card').animate({
 				width: '50%',
 				marginLeft: '25%',
-			}, 300, function() {
+				opacity: 1
+			}, 100, function() {
 
 			})
 		});
-		if (card.innerHTML == cards[counter]['title']) {
-			card.innerHTML = cards[counter]['definition'];
-		} else {
-			card.innerHTML = cards[counter]['title'];
-		}
+		
 	}
 
 

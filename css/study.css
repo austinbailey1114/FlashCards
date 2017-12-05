@@ -122,6 +122,21 @@ a {
 	height: 440px;
 	background-color: white;
 	position: absolute;
+	z-index: 2;
+}
+
+#altCard {
+	text-align: center;
+	margin: auto;
+	margin-left: 25%;
+	margin-top: 7%;
+	border: 0px solid #DCDCDC;
+	border-radius: 15px;
+	width: 50%;
+	height: 440px;
+	background-color: white;
+	position: absolute;
+	z-index: 1;
 }
 
 #card, #newCardDiv {
@@ -142,7 +157,7 @@ a {
 	height: 440px;
 	background-color: white;
 	margin-left: 10%;
-	opacity: 0.2;
+	opacity: 0;
 	position: absolute;
 }
 
