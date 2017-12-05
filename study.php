@@ -167,6 +167,10 @@ $cards = json_decode(trim($cards), true);
 		*/
 		$('#altCardDisplay').html($('#cardDisplay').html());
 		$('#altCard').css('display', 'block');
+		//set these properties back to normal in case animation is currently running
+		$('#altCard').stop(true);
+		$('#altCard').css('margin-left', '25%');
+		$('#altCard').css('opacity', '1');	
 
 		try {
 			$('#cardDisplay').html(cards[++counter][startWithSide]);
@@ -193,7 +197,7 @@ $cards = json_decode(trim($cards), true);
 		* Change display to the previous card in the current set 
 		*/ 
 		try {
-			card.innerHTML = cards[--counter][startWithSide];
+			$('#cardDisplay').html(cards[--counter][startWithSide]);
 		} catch (err) {
 			counter = cards.length - 1;
 			card.innerHTML = cards[counter][startWithSide];
