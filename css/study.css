@@ -183,6 +183,10 @@ a {
 	line-height: 440px;
 }
 
+#altCardDisplay {
+	line-height: 440px;
+}
+
 #previousCard {
 	float: left;
 	margin-left:10%;

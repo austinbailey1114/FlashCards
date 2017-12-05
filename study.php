@@ -69,6 +69,7 @@ $cards = json_decode(trim($cards), true);
 	var counter = 0;
 	var cards = <?php echo json_encode($cards); ?>;
 	var card = document.getElementById('cardDisplay');
+	var altCard = document.getElementById('altCardDisplay');
 	var displayCount = document.getElementById('displayCount');
 	displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	var startWithSide = 'title';
@@ -166,19 +167,31 @@ $cards = json_decode(trim($cards), true);
 		/*
 		* Change display to the next card in the current set
 		*/
-		$('#card').animate({
+		$(topCard).animate({
 			marginLeft: '50%',
 			opacity: '0'
 		}, 600, function() {
-			$('#card').css('display', 'none')
+			$(topCard).css('margin-left', '25%');
+			$(topCard).css('opacity', '1');
+			$(topCard).css('z-index', '1');
+
+			//swap topCard
+			if (topCard = '#card') {
+				topCard = '#altCard';
+			} else {
+				topCard = '#card';
+			}
+
+			try {
+				$(topCard + 'Display').html(cards[++counter][startWithSide]);
+			} catch(err) {
+				counter = 0;
+				$(topCard + 'Display').html(cards[counter][startWithSide]);
+			}
+			displayCount.innerHTML = counter + 1 + "/" + cards.length;
 		});
-		try {
-			card.innerHTML = cards[++counter][startWithSide];
-		} catch(err) {
-			counter = 0;
-			card.innerHTML = cards[counter][startWithSide];
-		}
-		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+
+		
 	}
 
 	function decrementCard() {
