@@ -75,6 +75,7 @@ $cards = json_decode(trim($cards), true);
 	var startWithSide = 'title';
 	card.innerHTML = cards[counter][startWithSide];
 	var topCard = '#card';
+	var bottomCard = '#altCard';
 
 	//user interaction with cards through button clicks
 
@@ -171,27 +172,25 @@ $cards = json_decode(trim($cards), true);
 			marginLeft: '50%',
 			opacity: '0'
 		}, 600, function() {
+			$(topCard).css('z-index', '1');
+			$(bottomCard).css('z-index', '2');
 			$(topCard).css('margin-left', '25%');
 			$(topCard).css('opacity', '1');
-			$(topCard).css('z-index', '1');
 
 			//swap topCard
-			if (topCard = '#card') {
-				topCard = '#altCard';
-			} else {
-				topCard = '#card';
-			}
+			[topCard, bottomCard] = [bottomCard, topCard];
+			console.log('top: ' + topCard + ' bottom: ' + bottomCard);
 
-			try {
-				$(topCard + 'Display').html(cards[++counter][startWithSide]);
-			} catch(err) {
-				counter = 0;
-				$(topCard + 'Display').html(cards[counter][startWithSide]);
-			}
-			displayCount.innerHTML = counter + 1 + "/" + cards.length;
 		});
 
-		
+		try {
+			$(bottomCard + 'Display').html(cards[++counter][startWithSide]);
+		} catch(err) {
+			counter = 0;
+			$(bottomCard + 'Display').html(cards[counter][startWithSide]);
+		}
+		displayCount.innerHTML = counter + 1 + "/" + cards.length;
+
 	}
 
 	function decrementCard() {
