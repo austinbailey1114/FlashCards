@@ -163,16 +163,20 @@ $cards = json_decode(trim($cards), true);
 
 	function incrementCard() {
 		/*
-		* Change display to the next card in the current set
+		* Change display to the next card in the current set. Animation works by displaying
+		* a 'fake' copy of #card on top of #card, and then sliding the fake one off to 
+		* reveal the updated text on #card
 		*/
+
+		//copy #card's html to make it appear identical
 		$('#altCardDisplay').html($('#cardDisplay').html());
 		$('#altCard').css('display', 'block');
-		//stop animation and set properties back to normal in case animation is currently running
+		//stop and current animation and set properties back to normal in case animation is currently running
 		$('#altCard').stop(true);
 		$('#altCard').css('margin-left', '25%');
 		$('#altCard').css('opacity', '1');	
 
-		//increment to next value in array
+		//increment text next value in array
 		try {
 			$('#cardDisplay').html(cards[++counter][startWithSide]);
 		} catch(err) {
@@ -180,12 +184,15 @@ $cards = json_decode(trim($cards), true);
 			$('#cardDisplay').html(cards[counter][startWithSide]);
 		}
 
+		//update display counter
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 
+		//slide 25% right and bring down opacity
 		$('#altCard').animate({
 			marginLeft: '50%',
 			opacity: '0'
 		}, 300, function() {
+			//hide the fake card, and put it back to it's resting spot
 			$('#altCard').css('display', 'none');	
 			$('#altCard').css('margin-left', '25%');
 			$('#altCard').css('opacity', '1');		
@@ -198,11 +205,25 @@ $cards = json_decode(trim($cards), true);
 		* Change display to the previous card in the current set 
 		*/ 
 		try {
-			$('#cardDisplay').html(cards[--counter][startWithSide]);
-		} catch (err) {
-			counter = cards.length - 1;
-			$('#cardDisplay').html(cards[counter][startWithSide]);
+			$('#altCardDisplay').html(cards[--counter][startWithSide])
+		} catch (err) { 
+			counter = cards.length-1;
+			$('#altCardDisplay').html(cards[counter][startWithSide])
 		}
+
+		$('#altCard').stop(true);
+		$('#altCard').css('margin-left', '50%');
+		$('#altCard').css('opacity', '0');
+		$('#altCard').css('display', 'block');
+
+		$('#altCard').animate({
+			marginLeft: '25%',
+			opacity: '1'
+		}, 300, function() {
+			$('#cardDisplay').html($('#altCardDisplay').html());
+			$('#altCard').css('display', 'none');
+		})
+
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	}
 

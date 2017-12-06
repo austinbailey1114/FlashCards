@@ -51,7 +51,7 @@ a {
 	margin-top: 22.5px;
 	line-height: 45px;
 	margin-right: 3.6%;
-	background-color: #31C3D9;
+	background-color: none;
 	float: right;
 	text-align: center;
 	font-size: 18px;
@@ -90,7 +90,7 @@ a {
   	background-color: #F8F8F8;
   	font-size: 40px;
    	font-weight: 500;
-   	color: #31C3D9;
+   	color: #5090DA;
    	width: 60px;
 }
 
@@ -106,7 +106,7 @@ a {
 	font-size: 18px;
 	height: 70px;
 	width: 70px;
-	border: 2px solid #31C3D9;
+	border: 2px solid #5090DA;
 	border-radius: 50%;
 	line-height: 70px;
 }
@@ -215,7 +215,7 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: #31C3D9;
+  	background-color: #5090DA;
   	font-size: 14px;
    	font-weight: 400;
    	color: white;
@@ -244,7 +244,7 @@ a {
 	border-radius: 0px;
 	font-weight: 400;
 	font-size: 18px;
-	background-color: #31C3D9;
+	background-color: #5090DA;
 	color: white;
 }
 
