@@ -202,8 +202,13 @@ $cards = json_decode(trim($cards), true);
 
 	function decrementCard() {
 		/* 
-		* Change display to the previous card in the current set 
+		* Change display to the previous card in the current set. Animation works by making #altCard
+		* into the display of the previous card (the one we want #card to show). Then it is moved to the
+		* right of #card, and slid on top of it. Once it is on top, #cardDisplay is updated, and
+		* #altCard's display is set back to none
 		*/ 
+
+		//update #altCard's value to the previous card
 		try {
 			$('#altCardDisplay').html(cards[--counter][startWithSide])
 		} catch (err) { 
@@ -211,19 +216,23 @@ $cards = json_decode(trim($cards), true);
 			$('#altCardDisplay').html(cards[counter][startWithSide])
 		}
 
-		$('#altCard').stop(true);
+		//stop and finish any animations on #altCard, then move and show it
+		$('#altCard').stop(true, true);
 		$('#altCard').css('margin-left', '50%');
 		$('#altCard').css('opacity', '0');
 		$('#altCard').css('display', 'block');
 
+		//sliding animation
 		$('#altCard').animate({
 			marginLeft: '25%',
 			opacity: '1'
 		}, 300, function() {
+			//make #card into a copy of #altCard, then remove #altCard
 			$('#cardDisplay').html($('#altCardDisplay').html());
 			$('#altCard').css('display', 'none');
 		})
 
+		//update display
 		displayCount.innerHTML = counter + 1 + "/" + cards.length;
 	}
 
