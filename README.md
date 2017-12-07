@@ -8,3 +8,4 @@ This repository is inspired by Quizlet, a website where users can make their own
 - [ ] Finish API
 
 ## Screenshots ##
+![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/study.png)
