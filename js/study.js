@@ -25,6 +25,7 @@ $('#flipCard').click(function() {
 
 //user interaction with cards through arrow keys
 $(document).keydown(function(e) {
+	console.log(e.key);
 	if (e.key == "ArrowRight") {
 		incrementCard();
 	} else if (e.key == "ArrowUp") {
@@ -197,3 +198,21 @@ function flipCard() {
 	
 }
 
+function flipNewCard() {
+	$('#newCardDiv').animate({
+		width: '0',
+		marginLeft: '50%',
+		opacity: 0.2,
+	}, 100, function() {
+		$('#titleInput').css('display', 'none');
+		$('#definitionInput').css('display', 'block');
+		$('#titleInputCopy').html($('#titleInput').html());
+		$('#newCardDiv').animate({
+			width: '50%',
+			marginLeft: '25%',
+			opacity: 1
+	}, 100, function() {
+
+	})
+	});
+}
