@@ -166,7 +166,7 @@ a {
 	position: absolute;
 }
 
-#newCardForm input {
+#newCardDiv input {
 	display: inline-block;
 	width: 90%;
 	height: 60px;

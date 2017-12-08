@@ -33,6 +33,8 @@ $(document).keydown(function(e) {
 		decrementCard();
 	} else if (e.key == "ArrowDown") {
 		flipCard();
+	} else if (e.key == "Enter") {
+		flipNewCard();
 	}
 });
 
@@ -194,3 +196,4 @@ function flipCard() {
 	});
 	
 }
+

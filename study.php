@@ -48,8 +48,9 @@ $cards = json_decode(trim($cards), true);
 			<h2 id="altCardDisplay"></h2>
 		</div>
 		<div id="newCardDiv" style="display:none;">
+			<input type="text" name="title" id="titleInput" placeholder="Front Side">
 			<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
-				<input type="text" name="title" id="titleInput" placeholder="Front Side">
+				<input type="text" name="titleCopy" id="titleInputCopy" style="display: none;">
 				<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
 				<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
 				<input type="text" name="topic_title" value=<?php echo urlencode($title); ?> style="display: none;">
