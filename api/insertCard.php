@@ -5,7 +5,7 @@ require '../core/init.php';
 //topic_id and topic_title hidden on study/php
 $topic_id = $_POST['topic_id'];
 $topic_title = $_POST['topic_title'];
-$title = $_POST['title'];
+$title = $_POST['titleCopy'];
 $def = $_POST['definition'];
 
 $sql = "INSERT INTO cards (topic_id, title, definition) 
