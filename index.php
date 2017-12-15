@@ -26,6 +26,7 @@ $topics = json_decode(trim($topics), true);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+	<div id="bodyContainer">
 	<div id="topContainer">
 		<div id="colorBar"></div>
 		<h2 id="title">Flash Cards</h2>
@@ -63,8 +64,11 @@ $topics = json_decode(trim($topics), true);
 
 		?>
 	</div>
+	</div>
 	<div id="newTopicModal" style="position: absolute;">
 		<form action="./insertTopic.php" method="post">
+			<h3>Enter a name for your topic:</h3>
+			<input type="text" name="newTopicInput" id="newTopicInputId" placeholder="New Topic">
 		</form>
 	</div>
 </body>
@@ -88,11 +92,12 @@ $topics = json_decode(trim($topics), true);
 	});
 
 	$('#newTopic').click(function() {
-		$('newTopicModal').css('display', 'block');
+		$('#bodyContainer').css('opacity', '0.2');
+		$('#newTopicModal').css('display', 'block');
 		$('#newTopicModal').animate({
 			top: '-=85%',
-		}, 500, function() {
-
+		}, 300, function() {
+			$('#newTopicInputId').focus();
 		})
 	})
 
