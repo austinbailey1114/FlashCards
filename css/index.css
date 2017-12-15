@@ -147,6 +147,17 @@ input::placeholder {
 	background-color: #E53750;
 }
 
+#newTopicModal {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	width: 35%;
+	height: 400px;
+	background-color: pink;
+	margin-left: 32.5%;
+	top: 100%;
+}
+
 
 
 

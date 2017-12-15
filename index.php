@@ -29,7 +29,7 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<div id="colorBar"></div>
 		<h2 id="title">Flash Cards</h2>
-		<a href="./study.php" id="newTopic">+ Create New</a>
+		<button id="newTopic">+ Create New</button>
 	</div>
 	<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
 	<div id="topicsDiv">
@@ -63,6 +63,10 @@ $topics = json_decode(trim($topics), true);
 
 		?>
 	</div>
+	<div id="newTopicModal" style="position: absolute;">
+		<form action="./insertTopic.php" method="post">
+		</form>
+	</div>
 </body>
 <script type="text/javascript">
 
@@ -82,7 +86,17 @@ $topics = json_decode(trim($topics), true);
 			}
 		}
 	});
-	
+
+	$('#newTopic').click(function() {
+		$('newTopicModal').css('display', 'block');
+		$('#newTopicModal').animate({
+			top: '-=85%',
+		}, 500, function() {
+
+		})
+	})
+
+
 
 </script>
 </html>
