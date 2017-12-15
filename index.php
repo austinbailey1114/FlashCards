@@ -39,18 +39,18 @@ $topics = json_decode(trim($topics), true);
 		echo "<div class='containers'>";
 		foreach ($topics as $topic) {
 			if ($counter < 3) {
-				echo "<div class='topics'" . "id=" . $topic['id'] . " onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
 				echo "<div class='color" . $counter . "'></div>";
-				echo "<h3>" . $topic['name'] . "</h3>";
+				echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter++;
 				$topicNames[] = $topic['id'];
 			} else {
 				echo "</div>";
 				echo "<div class='containers'>";
-				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
 				echo "<div class='color0'></div>";
-				echo "<h3>" . $topic['name'] . "</h3>";
+				echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter = 1;
 				$topicNames[] = $topic['id'];
@@ -66,8 +66,22 @@ $topics = json_decode(trim($topics), true);
 </body>
 <script type="text/javascript">
 
-	var topics = <?php echo json_encode($topicNames); ?>;
-	console.log(topics);
+	//create array of Id's
+	var topicId = <?php echo json_encode($topicNames); ?>;
+
+	$('#searchBarInput').on('input', function() {
+		/*
+		* On each update to input, check if any of the topic names contain the search string
+		*/
+		for (var i = 0; i < topicId.length; i++) {
+			if (!($('#' + topicId[i]).html().indexOf($('#searchBarInput').val()) >= 0)) {
+				// if the topic name contains the string
+				$('#div' + topicId[i]).css('display', 'none');
+			} else {
+				$('#div' + topicId[i]).css('display', 'inline-block');
+			}
+		}
+	});
 	
 
 </script>
