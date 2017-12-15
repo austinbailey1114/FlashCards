@@ -13,4 +13,4 @@ This repository is inspired by Quizlet, a website where users can make their own
 Appearance of index page, upon login. Users can access their topics here.
 ![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/index.png)
 Draft of appearance for study page.
-![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/study2.png)
+![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/study3.png)
