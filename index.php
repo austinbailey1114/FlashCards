@@ -36,9 +36,8 @@ $topics = json_decode(trim($topics), true);
 		<input type="text" name="searchTopics">
 		<?php 
 		foreach ($topics as $topic) {
-			echo "<div>";
+			echo "<div onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
 			echo "<h3>" . $topic['name'] . "</h3>";
-			echo "<a href=./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . ">View topic</a>";
 			echo "</div>";
 		}
 
