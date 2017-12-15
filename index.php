@@ -23,6 +23,7 @@ $topics = json_decode(trim($topics), true);
 	<title>Flash Cards</title>
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="topContainer">
@@ -33,15 +34,17 @@ $topics = json_decode(trim($topics), true);
 	<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
 	<div id="topicsDiv">
 		<?php 
-		echo "<div class='containers'>";
 		$counter = 0;
+		$topicNames = array();
+		echo "<div class='containers'>";
 		foreach ($topics as $topic) {
 			if ($counter < 3) {
-				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<div class='topics'" . "id=" . $topic['id'] . " onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
 				echo "<div class='color" . $counter . "'></div>";
 				echo "<h3>" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter++;
+				$topicNames[] = $topic['id'];
 			} else {
 				echo "</div>";
 				echo "<div class='containers'>";
@@ -50,6 +53,7 @@ $topics = json_decode(trim($topics), true);
 				echo "<h3>" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter = 1;
+				$topicNames[] = $topic['id'];
 
 			}
 		}
@@ -60,4 +64,11 @@ $topics = json_decode(trim($topics), true);
 		?>
 	</div>
 </body>
+<script type="text/javascript">
+
+	var topics = <?php echo json_encode($topicNames); ?>;
+	console.log(topics);
+	
+
+</script>
 </html>
