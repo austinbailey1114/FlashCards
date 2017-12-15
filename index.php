@@ -33,6 +33,7 @@ $topics = json_decode(trim($topics), true);
 		<h2>this is in sideDiv</h2>
 	</div>
 	<div id="topicsDiv">
+		<input type="text" name="searchTopics">
 		<?php 
 		foreach ($topics as $topic) {
 			echo "<div>";
