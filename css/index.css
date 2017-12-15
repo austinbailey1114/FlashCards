@@ -1,0 +1,29 @@
+body {
+	font-family: 'Roboto';
+	background-color: #F1F1F1;
+	margin:0;
+	padding: 0;
+
+}
+
+div {
+	margin:0px;
+	padding: 0px;
+}
+
+h2 {
+	font-weight: 200;
+	margin:0;
+	padding: 0;
+}
+
+ input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+a {
+	text-decoration: none;
+}

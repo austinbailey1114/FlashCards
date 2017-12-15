@@ -212,7 +212,7 @@ function flipNewCard() {
 			marginLeft: '25%',
 			opacity: 1
 	}, 100, function() {
-
+		$('#definitionInput').focus();
 	})
 
 	});

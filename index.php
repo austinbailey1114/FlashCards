@@ -1,20 +1,21 @@
 <?php
 
-	require './core/init.php';
+require './core/init.php';
 
-	$id = 1;
+$id = 1;
 
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url . "/api/topics.php?id=" . $id);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url . "/api/topics.php?id=" . $id);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
-	$topics = curl_exec($ch);
-	if (curl_errno($ch)) {
-    	echo 'Error:' . curl_error($ch);
-	}
+$topics = curl_exec($ch);
+if (curl_errno($ch)) {
+	echo 'Error:' . curl_error($ch);
+}
 
-	$topics = json_decode(trim($topics), true);
+$topics = json_decode(trim($topics), true);
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500" rel="stylesheet">
 </head>
 <body>
+	<div id="topContainer">
+		<h2>This is top container</h2>
+	</div>
 	<h2>Your topics</h2>
 	<div>
 		<?php 
