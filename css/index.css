@@ -44,6 +44,7 @@ a {
 	display: block;
 	left: 0px;
     margin: 0px;
+    text-align: left;
 }
 
 #colorBar {
@@ -54,6 +55,27 @@ a {
 
 #title {
 	line-height: 90px;
+	margin-left: 7%;
+	font-weight: 300;
+	font-size: 30px;
+}
+
+#title, #newTopic {
+	display: inline-block;
+}
+
+#newTopic {
+	float: right;
+	margin-right: 8%;
+	color: #0F5FA5;
+	font-size: 20px;
+	font-weight: 200;
+	width: 10%;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 13px;
+	text-align: center; 
+	border: 3px dashed #0F5FA5;
 }
 
 #searchBarInput {

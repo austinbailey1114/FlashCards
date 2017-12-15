@@ -28,6 +28,7 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<div id="colorBar"></div>
 		<h2 id="title">Flash Cards</h2>
+		<a href="./study.php" id="newTopic">+ Create New</a>
 	</div>
 	<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
 	<div id="topicsDiv">
