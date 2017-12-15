@@ -29,12 +29,14 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<h2>This is top container</h2>
 	</div>
-	<h2>Your topics</h2>
-	<div>
+	<div id="sideDiv">
+		<h2>this is in sideDiv</h2>
+	</div>
+	<div id="topicsDiv">
 		<?php 
 		foreach ($topics as $topic) {
 			echo "<div>";
-			echo "Topic name: " . $topic['name'];
+			echo "<h3>" . $topic['name'] . "</h3>";
 			echo "<a href=./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . ">View topic</a>";
 			echo "</div>";
 		}
