@@ -4,9 +4,13 @@ This repository is inspired by Quizlet, a website where users can make their own
 ## In Development ##
 - [X] Build Database
 - [X] Create JS animations for cards
-- [ ] Update appearance of index.php
+- [X] Update appearance of index.php
 - [ ] Finish API
+- [ ] Add search bar funciton to index.php
+- [ ] Add ability to create new topics
 
 ## Screenshots ##
+Appearance of index page, upon login. Users can access their topics here.
+![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/index.png)
 Draft of appearance for study page.
 ![alt-text](https://github.com/austinbailey1114/FlashCards/blob/master/screenshots/study.png)
