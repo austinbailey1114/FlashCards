@@ -211,7 +211,7 @@ function flipNewCard() {
 			width: '50%',
 			marginLeft: '25%',
 			opacity: 1
-	}, 1000, function() {
+	}, 100, function() {
 
 	})
 

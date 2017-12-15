@@ -48,6 +48,9 @@ $cards = json_decode(trim($cards), true);
 			<h2 id="altCardDisplay"></h2>
 		</div>
 		<div id="newCardDiv" style="display:none;">
+			<div id="block" style="height: 42%;">
+					
+			</div>
 			<input type="text" name="title" id="titleInput" placeholder="Front Side">
 			<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
 				<input type="text" name="titleCopy" id="titleInputCopy" style="display: none;">
