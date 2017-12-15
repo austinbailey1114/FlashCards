@@ -26,8 +26,10 @@ $topics = json_decode(trim($topics), true);
 </head>
 <body>
 	<div id="topContainer">
-		<h2>This is top container</h2>
+		<div id="colorBar"></div>
+		<h2 id="title">Flash Cards</h2>
 	</div>
+	<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
 	<div id="topicsDiv">
 		<?php 
 		echo "<div class='containers'>";
@@ -35,6 +37,7 @@ $topics = json_decode(trim($topics), true);
 		foreach ($topics as $topic) {
 			if ($counter < 3) {
 				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<div class='color" . $counter . "'></div>";
 				echo "<h3>" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter++;
@@ -42,10 +45,10 @@ $topics = json_decode(trim($topics), true);
 				echo "</div>";
 				echo "<div class='containers'>";
 				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<div class='color0'></div>";
 				echo "<h3>" . $topic['name'] . "</h3>";
 				echo "</div>";
 				$counter = 1;
-
 
 			}
 		}
