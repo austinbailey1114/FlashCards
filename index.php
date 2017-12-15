@@ -17,7 +17,6 @@ if (curl_errno($ch)) {
 $topics = json_decode(trim($topics), true);
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,15 +28,28 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<h2>This is top container</h2>
 	</div>
-	<div id="sideDiv">
-		<h2>this is in sideDiv</h2>
-	</div>
 	<div id="topicsDiv">
-		<input type="text" name="searchTopics">
 		<?php 
+		echo "<div class='containers'>";
+		$counter = 0;
 		foreach ($topics as $topic) {
-			echo "<div onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
-			echo "<h3>" . $topic['name'] . "</h3>";
+			if ($counter < 3) {
+				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<h3>" . $topic['name'] . "</h3>";
+				echo "</div>";
+				$counter++;
+			} else {
+				echo "</div>";
+				echo "<div class='containers'>";
+				echo "<div class='topics' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+				echo "<h3>" . $topic['name'] . "</h3>";
+				echo "</div>";
+				$counter = 1;
+
+
+			}
+		}
+		if ($counter != 0) {
 			echo "</div>";
 		}
 
