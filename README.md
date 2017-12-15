@@ -6,8 +6,8 @@ This repository is inspired by Quizlet, a website where users can make their own
 - [X] Create JS animations for cards
 - [X] Update appearance of index.php
 - [ ] Finish API
-- [ ] Add search bar funciton to index.php
-- [ ] Add ability to create new topics
+- [X] Add search bar funciton to index.php
+- [X] Add ability to create new topics
 
 ## Screenshots ##
 Appearance of index page, upon login. Users can access their topics here.
