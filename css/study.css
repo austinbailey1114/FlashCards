@@ -3,6 +3,8 @@ body {
 	background-color: #F1F1F1;
 	margin:0;
 	padding: 0;
+	height: 100%;
+	overflow: hidden;
 
 }
 
@@ -34,7 +36,7 @@ a {
 
 #topContainer {
 	height: 90px;
-	background-color: #E96B56;
+	background-color: white;
 	padding: 0px;
 	display: fixed;
 	-webkit-box-shadow: 2px 3px 19px 0px rgba(0,0,0,0.2);
@@ -42,22 +44,27 @@ a {
 	box-shadow: 2px 3px 19px 0px rgba(0,0,0,0.2);
 }
 
+#colorBar {
+	height: 3px;
+	background-color: #E53750;
+}
+
 #title, #topics {
 	display: inline-block;
 }
 
 #topics {
-	width: 150px;
-	height: 45px;
-	color: white;
-	margin:auto;
-	margin-top: 22.5px;
-	line-height: 45px;
-	margin-right: 3.6%;
-	background-color: none;
 	float: right;
-	text-align: center;
-	font-size: 18px;
+	margin-right: 6%;
+	color: #0F5FA5;
+	font-size: 20px;
+	font-weight: 200;
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 18px;
+	text-align: center; 
+	border: 2.8px dashed #0F5FA5;
 }
 
 #topics:hover {
@@ -67,9 +74,8 @@ a {
 #title {
 	line-height: 90px;
 	margin-left: 3.6%;
-	font-weight: 400;
-	color: white;
-	font-size: 30px;
+	font-weight: 200;
+	font-size: 27px;
 }
 
 #container, #sideDiv {
@@ -77,11 +83,17 @@ a {
 }
 
 #sideDiv {
-	width: 10%;
-	height: 1000px;
-	background-color: #F8F8F8;
+	width: 12%;
+	height: 40%;
+	margin-left: 4%;
+	margin-top: 160px;
+	background-color: white;
 	position: fixed;
 	text-align: center;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.15);
+	box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.15);
 }
 
 #newCard {
@@ -90,10 +102,10 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: #F8F8F8;
+  	background-color: white;
   	font-size: 40px;
    	font-weight: 500;
-   	color: #5090DA;
+   	color: #0F5FA5;
    	width: 60px;
 }
 
@@ -109,7 +121,7 @@ a {
 	font-size: 18px;
 	height: 70px;
 	width: 70px;
-	border: 2px solid #5090DA;
+	border: 2px solid #FEAD31;
 	border-radius: 50%;
 	line-height: 70px;
 }
@@ -223,7 +235,7 @@ a {
 	height: 60px;
   	border: 0px solid #DCDCDC;
   	border-radius: 0px;
-  	background-color: #5090DA;
+  	background-color: #FEAD31;
   	font-size: 14px;
    	font-weight: 400;
    	color: white;
@@ -252,7 +264,7 @@ a {
 	border-radius: 0px;
 	font-weight: 400;
 	font-size: 18px;
-	background-color: #5090DA;
+	background-color: #FEAD31;
 	color: white;
 }
 

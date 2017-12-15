@@ -29,6 +29,7 @@ $cards = json_decode(trim($cards), true);
 </head>
 <body>
 	<div id="topContainer">
+		<div id="colorBar"></div>
 		<h2 id="title"><?php echo $title; ?></h2>
 		<a id="topics" href="./index.php">Back to Topics</a>
 	</div>
