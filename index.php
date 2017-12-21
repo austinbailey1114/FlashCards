@@ -2,7 +2,9 @@
 
 require './core/init.php';
 
-$id = 1;
+$_SESSION['id'] = 1;
+
+$id = $_SESSION['id'];
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url . "/api/topics.php?id=" . $id);
@@ -66,7 +68,7 @@ $topics = json_decode(trim($topics), true);
 	</div>
 	</div>
 	<div id="newTopicModal" style="position: absolute;">
-		<form action="./insertTopic.php" method="post">
+		<form action="./api/insertTopic.php" method="post">
 			<h3>Enter a name for your topic:</h3>
 			<input type="text" name="newTopicInput" id="newTopicInputId" placeholder="New Topic">
 		</form>
@@ -96,12 +98,10 @@ $topics = json_decode(trim($topics), true);
 		$('#newTopicModal').css('display', 'block');
 		$('#newTopicModal').animate({
 			top: '-=85%',
-		}, 300, function() {
+		}, 400, function() {
 			$('#newTopicInputId').focus();
 		})
-	})
-
-
+	});
 
 </script>
 </html>

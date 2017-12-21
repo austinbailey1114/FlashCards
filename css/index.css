@@ -72,10 +72,11 @@ a {
 	font-weight: 200;
 	width: 10%;
 	height: 50px;
-	line-height: 50px;
-	margin-top: 13.5px;
+	line-height: 44px;
+	margin-top: 16px;
 	text-align: center; 
 	border: 2.8px dashed #0F5FA5;
+	border-radius: 0px;
 }
 
 #searchBarInput {

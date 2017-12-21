@@ -7,6 +7,8 @@ error_reporting(-1);
 
 session_start();
 
+require '../Query/Query.php';
+
 //temporary, while on localhost
 $url = 'localhost/flashcards';
 
@@ -16,3 +18,5 @@ $password = "";
 $dbname = "flashcards";
 
 $mysqli = new mysqli($servername, $username, $password, $dbname);
+
+$query = new Query($mysqli);

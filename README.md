@@ -8,6 +8,7 @@ This repository is inspired by Quizlet, a website where users can make their own
 - [ ] Finish API
 - [X] Add search bar funciton to index.php
 - [X] Add ability to create new topics
+- [ ] Handle Login
 
 ## Screenshots ##
 Appearance of index page, upon login. Users can access their topics here.
