@@ -8,17 +8,7 @@ $topic_title = $_POST['topic_title'];
 $title = $_POST['titleCopy'];
 $def = $_POST['definition'];
 
-$sql = "INSERT INTO cards (topic_id, title, definition) 
-VALUES (?, ?, ?)";
-
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("iss", $topic_id, $title, $def);
-
-if ($stmt->execute()) {
-	//card added successfully
-} else {
-	//card not added
-}
+$result = $query->table('cards')->insert(array('topic_id', 'title', 'definition'), array($topic_id, $title, $def))->execute();
 
 header("Location: ../study.php?topic_id=" . $topic_id . "&title=" . $topic_title);
 
