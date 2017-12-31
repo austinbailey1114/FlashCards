@@ -77,6 +77,7 @@ a {
 	text-align: center; 
 	border: 2.8px dashed #0F5FA5;
 	border-radius: 0px;
+	z-index: 3;
 }
 
 #searchBarInput {

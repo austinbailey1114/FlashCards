@@ -14,6 +14,7 @@ $user = $query->table('users')
 
 if (count($user) > 0) {
 	$_SESSION['id'] = $user[0]['id'];
+	$_SESSION['created'] = time();
 	header('Location: ../index.php');
 } else {
 	header('Location: ../login.php?message=failed');

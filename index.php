@@ -2,9 +2,15 @@
 
 require './core/init.php';
 
-$_SESSION['id'] = 1;
-
 $id = $_SESSION['id'];
+
+if (!isset($_SESSION['id'])) {
+	header('Location: ./login.php');
+} else if (time() - $_SESSION['created'] > 1800) {
+	session_unset();
+	session_destroy();
+	header("Location: ./login.php");
+}
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url . "/api/topics.php?id=" . $id);
@@ -34,7 +40,8 @@ $topics = json_decode(trim($topics), true);
 		<h2 id="title">Flash Cards</h2>
 		<button id="newTopic">+ Create New</button>
 	</div>
-	<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
+	<div id="clickOutOfModal">
+		<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">
 	<div id="topicsDiv">
 		<?php 
 		$counter = 0;
@@ -65,6 +72,7 @@ $topics = json_decode(trim($topics), true);
 		}
 
 		?>
+	</div>
 	</div>
 	</div>
 	<div id="newTopicModal" style="position: absolute;">
@@ -103,5 +111,23 @@ $topics = json_decode(trim($topics), true);
 		})
 	});
 
+	$('#clickOutOfModal').click(function() {
+		$('#bodyContainer').css('opacity', '1');
+		$('#newTopicModal').css('display', 'none');
+		$('#newTopicModal').css('top', '100%');
+	})
+
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

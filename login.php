@@ -8,6 +8,7 @@ require './core/init.php';
 <html>
 <head>
 	<title>Login</title>
+	<style type="text/css" src="./css/loginStyle.css"></style>
 </head>
 <body>
 	<form action="./api/checklogin.php" method="post">
@@ -15,5 +16,6 @@ require './core/init.php';
 		<input type="password" name="password" placeholder="password">
 		<button></button>
 	</form>
+	<a href="./newUser.php">New User</a>
 </body>
 </html>
