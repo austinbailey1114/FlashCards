@@ -4,7 +4,13 @@ var counter = 0;
 var displayCount = document.getElementById('displayCount');
 displayCount.innerHTML = counter + 1 + "/" + cards.length;
 var startWithSide = 'title';
-$('#cardDisplay').html(cards[counter][startWithSide])
+
+// try to access first card, else set it to just a blank card
+try {
+	$('#cardDisplay').html(cards[counter][startWithSide]);
+} catch(err) {
+	$('#cardDisplay').html("Hit the '+' to add a card.");
+}
 
 //user interaction with cards through button clicks
 
