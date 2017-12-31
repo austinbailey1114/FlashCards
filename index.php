@@ -47,27 +47,36 @@ $topics = json_decode(trim($topics), true);
 		$counter = 0;
 		$topicNames = array();
 		echo "<div class='containers'>";
-		foreach ($topics as $topic) {
-			if ($counter < 3) {
-				echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
-				echo "<div class='color" . $counter . "'></div>";
-				echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
-				echo "</div>";
-				$counter++;
-				$topicNames[] = $topic['id'];
-			} else {
-				echo "</div>";
-				echo "<div class='containers'>";
-				echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
-				echo "<div class='color0'></div>";
-				echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
-				echo "</div>";
-				$counter = 1;
-				$topicNames[] = $topic['id'];
 
+		if (count($topics) > 0) {
+			foreach ($topics as $topic) {
+				if ($counter < 3) {
+					echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+					echo "<div class='color" . $counter . "'></div>";
+					echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
+					echo "</div>";
+					$counter++;
+					$topicNames[] = $topic['id'];
+				} else {
+					echo "</div>";
+					echo "<div class='containers'>";
+					echo "<div class='topics' id='div" . $topic['id'] . "' onclick=location.href='./study.php?topic_id=" . $topic['id'] . "&title=" .  urlencode($topic['name']) . "'>";
+					echo "<div class='color0'></div>";
+					echo "<h3 id=" . $topic['id'] . ">" . $topic['name'] . "</h3>";
+					echo "</div>";
+					$counter = 1;
+					$topicNames[] = $topic['id'];
+
+				}
 			}
-		}
-		if ($counter != 0) {
+			if ($counter != 0) {
+				echo "</div>";
+			}
+		} else {
+			echo "<div class='topics' id='noTopics'>";
+			echo "<div class='color" . 0 . "'></div>";
+			echo "<h3>" . "Create First Set" . "</h3>";
+			echo "</div>";
 			echo "</div>";
 		}
 
@@ -80,12 +89,23 @@ $topics = json_decode(trim($topics), true);
 			<h3>Enter a name for your topic:</h3>
 			<input type="text" name="newTopicInput" id="newTopicInputId" placeholder="New Topic">
 		</form>
+		<button id="exit">Exit</button>
 	</div>
 </body>
 <script type="text/javascript">
 
 	//create array of Id's
 	var topicId = <?php echo json_encode($topicNames); ?>;
+
+	function newTopic() {
+		$('#bodyContainer').css('opacity', '0.2');
+		$('#newTopicModal').css('display', 'block');
+		$('#newTopicModal').animate({
+			top: '-=85%',
+		}, 400, function() {
+			$('#newTopicInputId').focus();
+		})
+	}
 
 	$('#searchBarInput').on('input', function() {
 		/*
@@ -102,16 +122,14 @@ $topics = json_decode(trim($topics), true);
 	});
 
 	$('#newTopic').click(function() {
-		$('#bodyContainer').css('opacity', '0.2');
-		$('#newTopicModal').css('display', 'block');
-		$('#newTopicModal').animate({
-			top: '-=85%',
-		}, 400, function() {
-			$('#newTopicInputId').focus();
-		})
+		newTopic();
 	});
 
-	$('#clickOutOfModal').click(function() {
+	$('#noTopics').click(function() {
+		newTopic();
+	})
+
+	$('#exit').click(function() {
 		$('#bodyContainer').css('opacity', '1');
 		$('#newTopicModal').css('display', 'none');
 		$('#newTopicModal').css('top', '100%');

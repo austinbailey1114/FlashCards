@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $result = $query->table('users')->insert(array('username', 'password', 'email'), array($username, md5($password), $email))->execute();
 
 if ($result) {
-	$user = $query->table('users')->select(array('id'))->where('username', '=', $username)->and_where('password', '=', $password)->execute();
+	$user = $query->table('users')->select(array('id'))->where('username', '=', $username)->and_where('password', '=', md5($password))->execute();
 } else {
 	echo "Failed to create user";
 }
