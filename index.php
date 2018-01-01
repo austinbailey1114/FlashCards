@@ -38,7 +38,7 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<div id="colorBar"></div>
 		<h2 id="title">Flash Cards</h2>
-		<button id="newTopic">+ Create New</button>
+		<a id="newTopic">+ Create New</a>
 	</div>
 	<div id="clickOutOfModal">
 		<input type="text" name="searchBar" id="searchBarInput" placeholder="Search Topics">

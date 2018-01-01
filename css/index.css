@@ -66,18 +66,16 @@ a {
 
 #newTopic {
 	float: right;
-	margin-right: 8%;
-	color: #0F5FA5;
+	margin-right: 6%;
+	color: #1582D4;
 	font-size: 20px;
 	font-weight: 200;
 	width: 10%;
-	height: 50px;
-	line-height: 44px;
-	margin-top: 16px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 18px;
 	text-align: center; 
-	border: 2.8px dashed #0F5FA5;
-	border-radius: 0px;
-	z-index: 3;
+	border: 2.8px dashed #1582D4;
 }
 
 #searchBarInput {
