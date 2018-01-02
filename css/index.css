@@ -64,6 +64,20 @@ a {
 	display: inline-block;
 }
 
+#logout {
+	margin-right: 6%;
+	color: #1582D4;
+	font-size: 20px;
+	font-weight: 200;
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 18px;
+	text-align: center; 
+	border: 2.8px dashed #1582D4;
+	float: right;
+}
+
 #newTopic {
 	float: right;
 	margin-right: 6%;
@@ -170,6 +184,13 @@ input::placeholder {
 	border-radius: 10px;
 	text-align: center;
 	margin-top: 50px;
+}
+
+#exit {
+	border: none;
+	margin-top: 11px;
+	font-size: 17px;
+	color: #1582D4;
 }
 
 

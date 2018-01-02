@@ -38,6 +38,7 @@ $topics = json_decode(trim($topics), true);
 	<div id="topContainer">
 		<div id="colorBar"></div>
 		<h2 id="title">Flash Cards</h2>
+		<a id="logout" href="./logout.php" >Log Out</a>
 		<a id="newTopic">+ Create New</a>
 	</div>
 	<div id="clickOutOfModal">
