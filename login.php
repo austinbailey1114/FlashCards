@@ -14,7 +14,7 @@ require './core/init.php';
 	<div>
 	<div id="centerDiv">
 		<div id="colorDiv"></div>
-		<form action="./api/checklogin.php" method="post" id="form">
+		<form action="./api/users.php" method="post" id="form">
 			<p></p>
 			<input type="text" name="username" placeholder="Username" id="usernameInput">
 			<input type="password" name="password" placeholder="password" id="passwordInput">

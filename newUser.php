@@ -11,7 +11,7 @@
 <body>
 	<div id="centerDiv">
 		<div id="colorDiv"></div>
-		<form action="./api/insertUser.php" method="post">
+		<form action="./api/users.php" method="post">
 			<input type="text" name="username" id="usernameInput" placeholder="Username">
 			<input type="password" name="password" id="passwordInput" placeholder="Password">
 			<input type="text" name="email" id="emailInput" placeholder="Email">
