@@ -86,7 +86,7 @@ $topics = json_decode(trim($topics), true);
 	</div>
 	</div>
 	<div id="newTopicModal" style="position: absolute;">
-		<form action="./api/insertTopic.php" method="post">
+		<form action="./api/topics.php" method="post">
 			<h3>Enter a name for your topic:</h3>
 			<input type="text" name="newTopicInput" id="newTopicInputId" placeholder="New Topic">
 		</form>
