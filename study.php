@@ -53,7 +53,7 @@ $cards = json_decode(trim($cards), true);
 					
 			</div>
 			<input type="text" name="title" id="titleInput" placeholder="Front Side">
-			<form id="newCardForm" action="./api/insertCard.php" method="post" style="display: none;">
+			<form id="newCardForm" action="./api/cards.php" method="post" style="display: none;">
 				<input type="text" name="titleCopy" id="titleInputCopy" style="display: none;">
 				<input type="text" name="definition" id="definitionInput" placeholder="Back Side">
 				<input type="text" name="topic_id" value=<?php echo $topic_id; ?> style="display: none;">
