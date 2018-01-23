@@ -1,19 +1,7 @@
 <?php
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-
-require 'vendor/autoload.php';
 
 require './core/init.php';
-
-$app = new \Slim\App;
-
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
-	echo "hello";
- 	
-});
-$app->run();
 
 $id = $_SESSION['id'];
 
@@ -124,7 +112,7 @@ $topics = json_decode(trim($topics), true);
 	$('#searchBarInput').on('input', function() {
 		/*
 		* On each update to input, check if any of the topic names contain the search string
-		*/
+		*/ 
 		for (var i = 0; i < topicId.length; i++) {
 			if (!($('#' + topicId[i]).html().indexOf($('#searchBarInput').val()) >= 0)) {
 				// if the topic name contains the string
